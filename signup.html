@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+
+<style>* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container, .profile-container {
+    background: #fff;
+    padding: 30px;
+    width: 330px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1e40af;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}</style>
+
+
+<body>
+
+
+<div class="auth-container">
+    <h2>Create Account</h2>
+
+    <input type="text" id="su-username" placeholder="Username" required>
+    <input type="password" id="su-password" placeholder="Password" required>
+
+    <button onclick="signup()">Sign Up</button>
+
+    <p>Already have an account?
+        <a href="login.html">Login</a>
+    </p>
+</div>
+
+<script src="auth.js"></script>
+</body>
+</html>
+</div>
+
+<script src="auth.js"></script>
+</body>
+</html>
