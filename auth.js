@@ -1,69 +1,33 @@
-// Get users from storage
-function getUsers() {
-    return JSON.parse(localStorage.getItem("users")) || [];
-}
+// Demo credentials
+const validUser = {
+    username: "admin",
+    password: "1234"
+};
 
-// Save users
-function saveUsers(users) {
-    localStorage.setItem("users", JSON.stringify(users));
-}
-
-// SIGN UP
-function signup() {
-    const username = document.getElementById("su-username").value;
-    const password = document.getElementById("su-password").value;
-
-    if (!username || !password) {
-        alert("Fill all fields");
-        return;
-    }
-
-    const users = getUsers();
-
-    if (users.find(u => u.username === username)) {
-        alert("Username already exists");
-        return;
-    }
-
-    users.push({ username, password });
-    saveUsers(users);
-
-    alert("Account created successfully");
-    window.location.href = "login.html";
-}
-
-// LOGIN
 function login() {
-    const username = document.getElementById("li-username").value;
-    const password = document.getElementById("li-password").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-    const users = getUsers();
-    const user = users.find(
-        u => u.username === username && u.password === password
-    );
-
-    if (user) {
-        localStorage.setItem("loggedInUser", username);
+    if (username === validUser.username && password === validUser.password) {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("username", username);
         window.location.href = "profile.html";
     } else {
         alert("Invalid login details");
     }
 }
 
-// CHECK LOGIN
 function checkLogin() {
-    const user = localStorage.getItem("loggedInUser");
-    if (!user) {
+    if (localStorage.getItem("loggedIn") !== "true") {
         window.location.href = "login.html";
     } else {
-        document.getElementById("user").textContent = user;
+        document.getElementById("user").textContent =
+            localStorage.getItem("username");
     }
 }
 
-// LOGOUT
 function logout() {
-    localStorage.removeItem("loggedInUser");
+    localStorage.clear();
     window.location.href = "login.html";
 }
-
 
