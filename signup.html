@@ -9,6 +9,7 @@
 
 
 <style>* {
+* {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
@@ -60,23 +61,17 @@ a {
 
 <body>
 
-
 <div class="auth-container">
     <h2>Create Account</h2>
 
-    <input type="text" id="su-username" placeholder="Username" required>
-    <input type="password" id="su-password" placeholder="Password" required>
+    <input type="text" id="su-username" placeholder="Username">
+    <input type="password" id="su-password" placeholder="Password">
 
-    <button onclick="signup()">Sign Up</button>
+    <button type="button" onclick="signup()">Create Account</button>
 
     <p>Already have an account?
         <a href="login.html">Login</a>
     </p>
-</div>
-
-<script src="auth.js"></script>
-</body>
-</html>
 </div>
 
 <script src="auth.js"></script>
