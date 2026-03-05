@@ -1,58 +1,68 @@
+// Get all users
 function getUsers() {
-    return JSON.parse(localStorage.getItem("users")) || [];
+  return JSON.parse(localStorage.getItem("users")) || [];
 }
 
+// Save users
 function saveUsers(users) {
-    localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("users", JSON.stringify(users));
 }
 
+// CREATE ACCOUNT
 function signup() {
-    const username = document.getElementById("su-username").value.trim();
-    const password = document.getElementById("su-password").value.trim();
+  const username = document.getElementById("su-username").value.trim();
+  const password = document.getElementById("su-password").value.trim();
 
-    if (!username || !password) {
-        alert("Please fill all fields");
-        return;
-    }
+  if (!username || !password) {
+    alert("Please fill all fields");
+    return;
+  }
 
-    const users = getUsers();
+  const users = getUsers();
 
-    if (users.find(u => u.username === username)) {
-        alert("Username already exists");
-        return;
-    }
+  if (users.find(u => u.username === username)) {
+    alert("Username already exists");
+    return;
+  }
 
-    users.push({ username, password });
-    saveUsers(users);
+  users.push({ username, password });
+  saveUsers(users);
 
-    alert("Account created successfully");
-    window.location.href = "login.html";
+  alert("Account created successfully");
+  window.location.href = "login.html";
 }
 
-
+// LOGIN
 function login() {
-    const username = document.getElementById("li-username").value.trim();
-    const password = document.getElementById("li-password").value.trim();
+  const username = document.getElementById("li-username").value.trim();
+  const password = document.getElementById("li-password").value.trim();
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+  const users = getUsers();
+  const user = users.find(
+    u => u.username === username && u.password === password
+  );
 
-    const user = users.find(
-        u => u.username === username && u.password === password
-    );
+  if (user) {
+    localStorage.setItem("loggedInUser", username);
+    window.location.href = "profile.html";
+  } else {
+    alert("Incorrect login details");
+  }
+}
 
-    if (user) {
-        localStorage.setItem("loggedInUser", username);
-        window.location.href = "profile.html";
-    } else {
-        alert("Incorrect username or password");
-    }
+// CHECK LOGIN (protect profile)
 function checkLogin() {
-    const user = localStorage.getItem("loggedInUser");
+  const user = localStorage.getItem("loggedInUser");
 
-    if (!user) {
-        window.location.href = "login.html"; // Not logged in
-    } else {
-        document.getElementById("user").textContent = user;
-    }
+  if (!user) {
+    window.location.href = "login.html";
+  } else {
+    document.getElementById("username").textContent = user;
+  }
 }
-}
+
+// LOGOUT
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "login.html";
+} 
